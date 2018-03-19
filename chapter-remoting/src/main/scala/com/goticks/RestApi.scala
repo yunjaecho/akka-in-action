@@ -13,15 +13,8 @@ import scala.concurrent.ExecutionContext
 /**
   * Created by USER on 2018-03-07.
   */
-class RestApi(system: ActorSystem, timeout: Timeout)
-  extends RestRoutes {
-  implicit val requestTimeout = timeout
-  implicit def executionContext = system.dispatcher
 
-  def createBoxOffice = system.actorOf(BoxOffice.props, BoxOffice.name)
-}
-
-trait RestRoutes extends BoxOfficeApi
+trait RestApi extends BoxOfficeApi
   with EventMarshalling {
   import StatusCodes._
 
