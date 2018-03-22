@@ -2,9 +2,6 @@ package com.goticks
 
 import spray.json._
 
-/**
-  * Created by USER on 2018-03-07.
-  */
 case class EventDescription(tickets: Int) {
   require(tickets > 0)
 }
@@ -14,7 +11,6 @@ case class TicketRequest(tickets: Int) {
 }
 
 case class Error(message: String)
-
 
 trait EventMarshalling  extends DefaultJsonProtocol {
   import BoxOffice._
